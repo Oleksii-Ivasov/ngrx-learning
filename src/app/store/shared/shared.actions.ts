@@ -7,5 +7,3 @@ export const setLoadingSpinner = createAction(
   SET_LOADING_SPINNER,
   props<{ status: boolean }>()
 );
-
-export const setErrorMessage = createAction(SET_ERROR_MESSAGE, props<{message: string}>())

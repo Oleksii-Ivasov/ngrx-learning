@@ -19,7 +19,9 @@ export class CustomCounterInputComponent {
     this.text$ = this.store.select(getText)
   }
   onAdd() {
-    this.store.dispatch(customIncrement({ count: +this.value }));
+    if (+this.value) {
+      this.store.dispatch(customIncrement({ count: +this.value }));
+    }
   }
   onChangeText() {
     this.store.dispatch(changeText());

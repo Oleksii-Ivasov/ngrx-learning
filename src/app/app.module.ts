@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {HttpClientModule} from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component'
 import { appReducer } from './store/app.state';
+import { StateComponent } from './shared/components/state/state.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { appReducer } from './store/app.state';
     HomeComponent,
     HeaderComponent,
     LoadingSpinnerComponent,
+    StateComponent,
   ],
   imports: [
     BrowserModule,

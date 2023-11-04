@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { loginStart } from '../state/auth.actions';
 import { setLoadingSpinner } from 'src/app/store/shared/shared.actions';
+import { Observable } from 'rxjs';
+import { getErrorMessage } from '../state/auth.selector';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +15,14 @@ import { setLoadingSpinner } from 'src/app/store/shared/shared.actions';
 export class LoginComponent {
   constructor(private store: Store<AppState>) {}
   loginForm!: FormGroup;
+  errorMessage$!: Observable<string>
 
   ngOnInit() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
+    this.errorMessage$ = this.store.select(getErrorMessage)
   }
 
   onLoginSubmit() {
