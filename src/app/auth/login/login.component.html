@@ -1,6 +1,6 @@
 <div
   class="row d-flex justify-content-center align-items-center"
-  style="height: calc(100vh - 180px)">
+  style="height: calc(100vh - 200px)">
   <div class="col-md-6">
     <h3>Login</h3>
     <hr />
@@ -28,6 +28,9 @@
             >Invalid email</small
           >
         </div>
+        <small *ngIf="loginForm.controls['email'].value.length < 1"
+          >Email: test@gmail.com</small
+        >
       </div>
       <div class="mb-3">
         <label for="password">Password</label>
@@ -36,16 +39,27 @@
           id="password"
           class="form-control"
           formControlName="password" />
-        <small class="text-danger"
+        <small
+          class="text-danger"
           *ngIf="
             loginForm.controls['password'].touched &&
             !loginForm.controls['password'].valid
           ">
           Password is required
         </small>
+        <div>
+          <small *ngIf="loginForm.controls['password'].value.length < 1"
+            >Password: 123456</small
+          >
+        </div>
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary" [disabled]="! loginForm.valid">Login</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!loginForm.valid">
+          Login
+        </button>
       </div>
     </form>
   </div>

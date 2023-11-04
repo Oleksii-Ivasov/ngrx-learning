@@ -6,6 +6,7 @@ import { Post } from 'src/app/models/posts.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { updatePost } from '../state/posts.actions';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-edit-post',
@@ -15,7 +16,7 @@ import { updatePost } from '../state/posts.actions';
 export class EditPostComponent {
   constructor(
     private route: ActivatedRoute,
-    private store: Store,
+    private store: Store<AppState>,
     private router: Router
   ) {}
 
